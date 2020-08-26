@@ -14,18 +14,19 @@ var letterCombinations = function(digits) {
         '9':['w','x','y','z'],
     }
     let res = []
-    const dfs = function (start,str,index) {
+    const dfs = function (str,index) {
+        const start = digits[index]
         const arr = letter[start]
         if (arr) {
             for (let i = 0;i< arr.length;i++) {
                 str += arr[i]
                 if (str && str.length >= digits.length) res.push(str)
-                if (index <= digits.length -2) dfs(digits[index+1],str,index+1)
+                if (index <= digits.length -2) dfs(str,index+1)
                 str = str.substring(0,str.length-1)
             }
         }
     }
-    dfs(digits[0],'',0)
+    dfs('',0)
     return res
 };
 
