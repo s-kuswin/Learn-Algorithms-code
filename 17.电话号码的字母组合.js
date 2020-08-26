@@ -17,12 +17,11 @@ var letterCombinations = function(digits) {
     const dfs = function (str,index) {
         const start = digits[index]
         const arr = letter[start]
-        if (arr) {
-            for (let i = 0;i< arr.length;i++) {
-                let concatStr = str+arr[i]
-                if (concatStr && concatStr.length >= digits.length) res.push(concatStr)
-                if (index <= digits.length -2) dfs(concatStr,index+1)
-            }
+        if (!arr) return
+        for (let i = 0;i< arr.length;i++) {
+            const concatStr = str+arr[i]
+            if (concatStr && concatStr.length >= digits.length) res.push(concatStr)
+            if (index <= digits.length -2) dfs(concatStr,index+1)
         }
     }
     dfs('',0)
