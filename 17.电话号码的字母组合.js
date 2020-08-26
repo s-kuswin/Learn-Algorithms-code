@@ -19,10 +19,9 @@ var letterCombinations = function(digits) {
         const arr = letter[start]
         if (arr) {
             for (let i = 0;i< arr.length;i++) {
-                str += arr[i]
-                if (str && str.length >= digits.length) res.push(str)
-                if (index <= digits.length -2) dfs(str,index+1)
-                str = str.substring(0,str.length-1)
+                let concatStr = str+arr[i]
+                if (concatStr && concatStr.length >= digits.length) res.push(concatStr)
+                if (index <= digits.length -2) dfs(concatStr,index+1)
             }
         }
     }
