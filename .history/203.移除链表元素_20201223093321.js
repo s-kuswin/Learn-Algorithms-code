@@ -28,7 +28,7 @@ var removeElements = function(head, val) {
              cur = cur.next
         }
     }
-    return newList.next                                                    
+    return newList.next
 };
 // @lc code=end
 
